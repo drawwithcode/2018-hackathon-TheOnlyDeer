@@ -139,12 +139,14 @@ function draw() {
         image(imgs[8], map(time,27000,28000,-imgs[8].width, width),(height-imgs[8].height)/2);
     }
     
-    /*if (time > 28000){
+    if (time > 28000){
         push();
+        imageMode(CENTER);
         translate(width/2,height/2);
-        image(imgs[8], map(time,27000,28000,-imgs[8].width, width),(height-imgs[8].height)/2);
+        image(logo,0,0, map(time,28000,30000,0, minWS/2),map(time,28000,30000,0, minWS/2));
         pop();
-    }*/
+    }
+    if (time > 30000) noLoop();
 }
 
 function windowResized() {
