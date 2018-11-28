@@ -1,7 +1,12 @@
 let theme;
-
+let imgs = [];
+let logo;
 function preload(){
     theme = loadSound('assets/Hanazuki - Full.flac');
+    for(let i = 1; i<10;i++){
+        imgs.push(loadImage('assets/'+i+'.png'));
+    }
+    logo = loadImage('assets/logo.png')
 }
 
 let maxWS;
@@ -27,7 +32,7 @@ let rColors = ['#f60633','#f5c51f','#f2f624','#ddf62d','#4bcb95','#91e0d7','#75c
 function draw() {
     let time = new Date() - startTime;
     background(0);
-    text(time, 10, 30);
+    //text(time, 10, 30);
     let level = amplitude.getLevel();
     let size = map(level, 0, 1, 0, height*5);
     if (time < 5200){
@@ -104,7 +109,42 @@ function draw() {
             stroke(rColors[i%9])
             line(0,0,cos(map(i,0,1000,0,360))*maxWS,sin(map(i,0,1000,0,360))*maxWS);
         }
+        pop();
     }
+    if (time > 19000){
+        image(imgs[0], map(time,19000,20000,-imgs[0].width, width),(height-imgs[0].height)/2);
+    }
+    if (time > 20000){
+        image(imgs[1], map(time,20000,21000, width,-imgs[1].width),(height-imgs[1].height)/2);
+    }
+    if (time > 21000){
+        image(imgs[2], map(time,21000,22000,-imgs[2].width, width),(height-imgs[2].height)/2);
+    }
+    if (time > 22000){
+        image(imgs[3], map(time,22000,23000, width,-imgs[3].width),(height-imgs[3].height)/2);
+    }
+    if (time > 23000){
+        image(imgs[4], map(time,23000,24000,-imgs[4].width, width),(height-imgs[4].height)/2);
+    }
+    if (time > 24000){
+        image(imgs[5], map(time,24000,25000, width,-imgs[5].width),(height-imgs[5].height)/2);
+    }
+    if (time > 25000){
+        image(imgs[6], map(time,25000,26000,-imgs[6].width, width),(height-imgs[6].height)/2);
+    }
+    if (time > 26000){
+        image(imgs[7], map(time,26000,27000, width,-imgs[7].width),(height-imgs[7].height)/2);
+    }
+    if (time > 27000){
+        image(imgs[8], map(time,27000,28000,-imgs[8].width, width),(height-imgs[8].height)/2);
+    }
+    
+    /*if (time > 28000){
+        push();
+        translate(width/2,height/2);
+        image(imgs[8], map(time,27000,28000,-imgs[8].width, width),(height-imgs[8].height)/2);
+        pop();
+    }*/
 }
 
 function windowResized() {
